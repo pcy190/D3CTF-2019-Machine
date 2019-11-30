@@ -1,0 +1,12 @@
+# 构建本项目的方法
+
+1. 先用Android Studio打开项目工程。
+2. 在左下角的`Build Variants`中选择release，然后点击菜单栏中的`Build`->`Rebuild Project`。
+3. Build成功以后，运行SoFilePatch文件夹下面的test.java中的main函数，注意修改其中的路径，把里面的release_dir改成自己的项目地址即可。
+
+我们这儿采用了把libnative-lib.so修改后的文件再保存为一个libnative-lib_.so文件的方法，这样方便查看修改的效果。然后我们回到Android Studio中，点击`Build`->`Generate Signed APK`，配置完自己的证书即可。
+
+我们找到生成好的apk_release.apk文件，然后将其和makefile放在统一文件夹下面。
+确保安装apktool和jarsigner并且配置好相对应的环境变量。
+然后将自己的证书(此处命名为`keystore_happy.jks`，可以自己修改)放在同一目录下，直接`make all`即可完成全部的so文件替换，重打包工作，最后的时候会提示输入整证书jks的密钥，输入即可。
+最后生成的output.apk就是目标文件了。

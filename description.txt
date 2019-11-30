@@ -1,0 +1,5 @@
+# Title:
+Machine
+
+# Description:
+Long time age, a machine was built for math calculating. Nowadays, is's redesigned to verify the specific flag. However, it works slowly. Can you help me?
